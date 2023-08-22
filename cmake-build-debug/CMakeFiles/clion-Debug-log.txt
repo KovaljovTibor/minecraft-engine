@@ -1,0 +1,27 @@
+/home/tibor/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/tibor/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/tibor/Desktop/projects/ComuterGraphics/MinecraftEngine -B /home/tibor/Desktop/projects/ComuterGraphics/MinecraftEngine/cmake-build-debug
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at CMakeLists.txt:15 (find_package):
+  Could not find a package configuration file provided by "daxa" with any of
+  the following names:
+
+    daxaConfig.cmake
+    daxa-config.cmake
+
+  Add the installation prefix of "daxa" to CMAKE_PREFIX_PATH or set
+  "daxa_DIR" to a directory containing one of the above files.  If "daxa"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+-- Configuring incomplete, errors occurred!

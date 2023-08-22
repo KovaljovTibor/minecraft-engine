@@ -1,0 +1,24 @@
+# ninja log v5
+1210	2675	1690373220214911597	Debug/minecraft	1ee6fd652e160db9
+2	1210	1690373218758142146	CMakeFiles/minecraft.dir/Debug/src/camera.cpp.o	9cec0df62eb13852
+3	1901	1690373199057294266	CMakeFiles/minecraft.dir/Debug/src/main.cpp.o	fe542f195cce5be7
+2	1373	1690374040916009734	CMakeFiles/minecraft.dir/Debug/src/chunk.cpp.o	bf47e8654b912378
+2	1857	1690374041399368438	CMakeFiles/minecraft.dir/Debug/src/main.cpp.o	fe542f195cce5be7
+1857	2861	1690374042399420869	Debug/minecraft	53cd395f0234d6a8
+1	1370	1690374713423401835	CMakeFiles/minecraft.dir/Debug/src/chunk.cpp.o	bf47e8654b912378
+1370	2353	1690374714400096345	Debug/minecraft	53cd395f0234d6a8
+2	1395	1690375035240041305	CMakeFiles/minecraft.dir/Debug/src/chunk.cpp.o	bf47e8654b912378
+1	1901	1690375035743403837	CMakeFiles/minecraft.dir/Debug/src/main.cpp.o	fe542f195cce5be7
+1901	2921	1690375036756795916	Debug/minecraft	53cd395f0234d6a8
+1	1893	1690375472024758454	CMakeFiles/minecraft.dir/Debug/src/main.cpp.o	fe542f195cce5be7
+1893	2907	1690375473034800991	Debug/minecraft	53cd395f0234d6a8
+2	1369	1690376766042900657	CMakeFiles/minecraft.dir/Debug/src/chunk.cpp.o	bf47e8654b912378
+2	1885	1690376766556250047	CMakeFiles/minecraft.dir/Debug/src/main.cpp.o	fe542f195cce5be7
+1885	2858	1690376767522946950	Debug/minecraft	53cd395f0234d6a8
+1	2000	1690377309068742116	CMakeFiles/minecraft.dir/Debug/src/main.cpp.o	fe542f195cce5be7
+2000	2999	1690377310062133669	Debug/minecraft	53cd395f0234d6a8
+2	1358	1690377430165530789	CMakeFiles/minecraft.dir/Debug/src/chunk.cpp.o	bf47e8654b912378
+1358	2370	1690377431172251486	Debug/minecraft	53cd395f0234d6a8
+1	1421	1690377939232743505	CMakeFiles/minecraft.dir/Debug/src/chunk.cpp.o	bf47e8654b912378
+1	2024	1690377939832768722	CMakeFiles/minecraft.dir/Debug/src/main.cpp.o	fe542f195cce5be7
+2024	3110	1690377940912814102	Debug/minecraft	53cd395f0234d6a8

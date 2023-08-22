@@ -1,0 +1,34 @@
+warning: Embedding `vcpkg-configuration` in a manifest file is an EXPERIMENTAL feature.
+Detecting compiler hash for triplet x64-linux...
+All requested packages are currently installed.
+Restored 0 package(s) from /home/tibork/.cache/vcpkg/archives in 679 ns. Use --debug to see more details.
+Total install time: 9.651 us
+glfw3 provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(glfw3 CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE glfw)
+
+imgui provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(imgui CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE imgui::imgui)
+
+daxa provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(daxa CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE daxa::daxa)
+
+glm provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(glm CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE glm::glm)
+
+stb is header-only and can be used from CMake via:
+
+    find_path(STB_INCLUDE_DIRS "stb_c_lexer.h")
+    target_include_directories(main PRIVATE ${STB_INCLUDE_DIRS})
+

@@ -1,0 +1,276 @@
+Package: vcpkg-cmake-config
+Version: 2022-02-06
+Port-Version: 1
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 8460d6fe70d93056f047d285d2d7824d56b7509cd3717e94fc4076aca7d943f3
+Type: Port
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2022-10-30
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 381b31a78d53461b390c111843423afcc74eb13044032b11f276a2a661fe4a7b
+Type: Port
+Status: install ok installed
+
+Package: glslang
+Version: 11.12.0
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 616cb7e2750521d9cf977fb18329d2cb00718fa4511a5bd3c3668be7e7020a39
+Description: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
+Type: Port
+Default-Features: tools
+Status: install ok installed
+
+Package: glslang
+Feature: tools
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build the glslangValidator and spirv-remap binaries
+Type: Port
+Status: install ok installed
+
+Package: vcpkg-tool-meson
+Version: 0.63
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 7edfd2ed5519a8552508482d29c2f9bb4e69af800d41bbfce7b949fad4dc0c99
+Description: Meson build system
+Type: Port
+Status: install ok installed
+
+Package: zlib
+Version: 1.2.13
+Depends: vcpkg-cmake
+Architecture: x64-linux
+Multi-Arch: same
+Abi: dd9d53169ccfbbf8d2f772b5b8547bc00171993109aa47656148cc8bdae406ac
+Description: A compression library
+Type: Port
+Status: install ok installed
+
+Package: liblzma
+Version: 5.2.5
+Port-Version: 6
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 9f988c4833df0171a4c7af7208177a988aad994bd9d543bb04b7b1dd3c28eca9
+Description: Compression library with an API similar to that of zlib.
+Type: Port
+Status: install ok installed
+
+Package: libiconv
+Version: 1.17
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 0f9fdfced3b597aac27f92d1cde55826277f8a9eb69397158548aa1f7c2958e4
+Description: GNU Unicode text conversion
+Type: Port
+Status: install ok installed
+
+Package: libxml2
+Version: 2.10.3
+Depends: libiconv, liblzma, vcpkg-cmake, vcpkg-cmake-config, zlib
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 44aabc70d3b842de8c0844bd76434921ef4f513a6ff5651a67fe01e42915f05e
+Description: Libxml2 is the XML C parser and toolkit developed for the Gnome project (but usable outside of the Gnome platform).
+Type: Port
+Status: install ok installed
+
+Package: libffi
+Version: 3.4.4
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 9f28bf8b88151f36ee0c278530dbb6ce5ed9d3ed6a37cfbb44e53d1634b0035f
+Description: Portable, high level programming interface to various calling conventions
+Type: Port
+Status: install ok installed
+
+Package: expat
+Version: 2.5.0
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: c6ce865a7759bc7f02c94be1ed1b846debd6bfd36f6b086cb0bcd0b536c866b3
+Description: XML parser library written in C
+Type: Port
+Status: install ok installed
+
+Package: wayland
+Version: 1.21.0
+Depends: expat, libffi, libxml2, vcpkg-tool-meson
+Architecture: x64-linux
+Multi-Arch: same
+Abi: b1ce3aba3d73b825bae80cc686f7c1fb279989093681fde7df32e9e170279d99
+Description: Core Wayland window system code and protocol
+Type: Port
+Status: install ok installed
+
+Package: wayland-protocols
+Version: 1.31
+Depends: wayland
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 1df276207089c763d146fe1284ff5e554d8866c657368dbc9fe4d4b915b33ae1
+Description: wayland-protocols contains Wayland protocols that add functionality not available in the Wayland core protocol.
+Type: Port
+Status: install ok installed
+
+Package: glfw3
+Version: custom
+Depends: vcpkg-cmake, vcpkg-cmake-config, wayland, wayland-protocols
+Architecture: x64-linux
+Multi-Arch: same
+Abi: e63af6630c545397137b3ef52fa0892b373e00448ecdd248a9cba3016b213b9b
+Description: GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development. It provides a simple, platform-independent API for creating windows, contexts and surfaces, reading input, handling events, etc.
+Type: Port
+Status: install ok installed
+
+Package: glfw3
+Feature: wayland
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build with Wayland support
+Type: Port
+Status: install ok installed
+
+Package: glfw3
+Feature: xlib
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build with XLib support
+Type: Port
+Status: install ok installed
+
+Package: imgui
+Version: 1.89.1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 96b048c98e3f9833df9c929be94df47a2b606c80adccab0c41a091968916acb4
+Description: Bloat-free Immediate Mode Graphical User interface for C++ with minimal dependencies.
+Type: Port
+Status: install ok installed
+
+Package: imgui
+Feature: docking-experimental
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build with docking support
+Type: Port
+Status: install ok installed
+
+Package: imgui
+Feature: glfw-binding
+Depends: glfw3
+Architecture: x64-linux
+Multi-Arch: same
+Description: Make available GLFW binding
+Type: Port
+Status: install ok installed
+
+Package: vulkan-memory-allocator
+Version: 3.0.0
+Architecture: x64-linux
+Multi-Arch: same
+Abi: c96f6449a1d46949e051abe8ec45d0a047c20be2d7e18eec70ef2e141b8b1d71
+Description: Easy to integrate Vulkan memory allocation library from GPUOpen
+Type: Port
+Status: install ok installed
+
+Package: vulkan
+Version: 1.1.82.1
+Port-Version: 2
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 97c9470efb0b9091f112990ff75360051bc3b1123a8b361cb382c660ee169e57
+Description: A graphics and compute API that provides high-efficiency, cross-platform access to modern GPUs on a wide variety of devices.
+Type: Port
+Status: install ok installed
+
+Package: fmt
+Version: 9.1.0
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: b59751ac6ba2b709dc2b520b551880416e036dbe87e6447ab2f33726c890e506
+Description: Formatting library for C++. It can be used as a safe alternative to printf or as a fast alternative to IOStreams.
+Type: Port
+Status: install ok installed
+
+Package: daxa
+Version: local
+Port-Version: 18
+Depends: fmt, vulkan, vulkan-memory-allocator
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 0f0ecc5e2153ad95bf64e76fc2f7df63e7e87ec34f1eca097ed4db5f420bfcab
+Description: Daxa C++ Vulkan Abstraction
+Type: Port
+Default-Features: utils-imgui, utils-mem, utils-pipeline-manager-glslang, utils-task-graph
+Status: install ok installed
+
+Package: daxa
+Feature: utils-imgui
+Depends: imgui
+Architecture: x64-linux
+Multi-Arch: same
+Description: The ImGUI Daxa utility
+Type: Port
+Status: install ok installed
+
+Package: daxa
+Feature: utils-mem
+Architecture: x64-linux
+Multi-Arch: same
+Description: The Mem Daxa utility
+Type: Port
+Status: install ok installed
+
+Package: daxa
+Feature: utils-pipeline-manager-glslang
+Depends: glslang
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build with glslang
+Type: Port
+Status: install ok installed
+
+Package: daxa
+Feature: utils-task-graph
+Architecture: x64-linux
+Multi-Arch: same
+Description: The Task-Graph Daxa utility
+Type: Port
+Status: install ok installed
+
+Package: glm
+Version: 0.9.9.8
+Port-Version: 1
+Architecture: x64-linux
+Multi-Arch: same
+Abi: cebf3592af1d17c957216f0eb1af24ca4a8af641b71b07eb59362eba33f03f68
+Description: OpenGL Mathematics (GLM)
+Type: Port
+Status: install ok installed
+
+Package: stb
+Version: 2021-09-10
+Port-Version: 1
+Architecture: x64-linux
+Multi-Arch: same
+Abi: ad9e01827486cdc5bb97430370139dfdf69f4fd49ce1b2de47538603f82de04c
+Description: public domain header-only libraries
+Type: Port
+Status: install ok installed
+
