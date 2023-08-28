@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.11)
 include(cmake/warnings.cmake)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_TOOLCHAIN_FILE "/home/tibor/dev/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
 execute_process(
     COMMAND ${CMAKE_COMMAND} -E create_symlink

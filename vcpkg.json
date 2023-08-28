@@ -24,10 +24,10 @@
   ],
   "vcpkg-configuration": {
     "overlay-ports": [
-      "/home/tibork/dev/Daxa/cmake/vcpkg-port",
-      "/home/tibork/dev/Daxa/cmake/vcpkg-overlay-ports/dxc",
-      "/home/tibork/dev/Daxa/cmake/vcpkg-overlay-ports/glfw3",
-      "/home/tibork/dev/Daxa/cmake/vcpkg-overlay-ports/fsr2"
+      "/home/tibor/dev/Daxa/cmake/vcpkg-port",
+      "/home/tibor/dev/Daxa/cmake/vcpkg-overlay-ports/dxc",
+      "/home/tibor/dev/Daxa/cmake/vcpkg-overlay-ports/glfw3",
+      "/home/tibor/dev/Daxa/cmake/vcpkg-overlay-ports/fsr2"
     ]
   }
 }

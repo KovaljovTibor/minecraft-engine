@@ -118,7 +118,7 @@ struct App {
         });
 
         instance = daxa::create_instance(daxa::InstanceInfo{
-            .enable_validation = true
+            //.enable_validation = true
         });
 
         device = instance.create_device(daxa::DeviceInfo{

@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/vcpkg-cmake-config-x64-linux-2022-02-06#1-f8fc9141-80d9-4e9c-bad5-a584f4ee8cba",
-  "name": "vcpkg-cmake-config:x64-linux@2022-02-06#1 8460d6fe70d93056f047d285d2d7824d56b7509cd3717e94fc4076aca7d943f3",
+  "documentNamespace": "https://spdx.org/spdxdocs/vcpkg-cmake-config-x64-linux-2022-02-06#1-cc4586c6-e65e-49cc-9ca9-6735c777fe37",
+  "name": "vcpkg-cmake-config:x64-linux@2022-02-06#1 eeb40672cc5c45d886841f5c3a2905ee78885d1d19d37a43ba841626a1a6eedd",
   "creationInfo": {
     "creators": [
-      "Tool: vcpkg-5fdee72bc1fceca198fb1ab7589837206a8b81ba"
+      "Tool: vcpkg-9990a4c9026811a312cb2af78bf77f3d9d288416"
     ],
-    "created": "2023-07-06T13:43:49Z"
+    "created": "2023-08-22T12:17:09Z"
   },
   "relationships": [
     {
@@ -58,11 +58,6 @@
       "relatedSpdxElement": "SPDXRef-port"
     },
     {
-      "spdxElementId": "SPDXRef-file-1",
-      "relationshipType": "DEPENDENCY_MANIFEST_OF",
-      "relatedSpdxElement": "SPDXRef-port"
-    },
-    {
       "spdxElementId": "SPDXRef-file-2",
       "relationshipType": "CONTAINED_BY",
       "relatedSpdxElement": "SPDXRef-port"
@@ -92,7 +87,7 @@
     {
       "name": "vcpkg-cmake-config:x64-linux",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "8460d6fe70d93056f047d285d2d7824d56b7509cd3717e94fc4076aca7d943f3",
+      "versionInfo": "eeb40672cc5c45d886841f5c3a2905ee78885d1d19d37a43ba841626a1a6eedd",
       "downloadLocation": "NONE",
       "licenseConcluded": "MIT",
       "licenseDeclared": "NOASSERTION",
@@ -102,32 +97,20 @@
   ],
   "files": [
     {
-      "fileName": "./portfile.cmake",
+      "fileName": ".//home/tibor/dev/vcpkg/ports/vcpkg-cmake-config/vcpkg_cmake_config_fixup.cmake",
       "SPDXID": "SPDXRef-file-0",
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "832b34e63f5af41ad1b2e4aa79c5bfa507a005b120b51548e674accc706837d7"
+          "checksumValue": "f92905382d90e37fa2addd96becce31f5075175196b117de6dd997a4ac1d6d06"
         }
       ],
       "licenseConcluded": "NOASSERTION",
       "copyrightText": "NOASSERTION"
     },
     {
-      "fileName": "./vcpkg.json",
+      "fileName": ".//home/tibor/dev/vcpkg/ports/vcpkg-cmake-config/vcpkg-port-config.cmake",
       "SPDXID": "SPDXRef-file-1",
-      "checksums": [
-        {
-          "algorithm": "SHA256",
-          "checksumValue": "4ffbabc2feab69abd21267f57669ef5e404bcbfa5ab6d93234374d98f5ff1864"
-        }
-      ],
-      "licenseConcluded": "NOASSERTION",
-      "copyrightText": "NOASSERTION"
-    },
-    {
-      "fileName": "./vcpkg-port-config.cmake",
-      "SPDXID": "SPDXRef-file-2",
       "checksums": [
         {
           "algorithm": "SHA256",
@@ -138,8 +121,8 @@
       "copyrightText": "NOASSERTION"
     },
     {
-      "fileName": "./copyright",
-      "SPDXID": "SPDXRef-file-3",
+      "fileName": ".//home/tibor/dev/vcpkg/ports/vcpkg-cmake-config/copyright",
+      "SPDXID": "SPDXRef-file-2",
       "checksums": [
         {
           "algorithm": "SHA256",
@@ -150,12 +133,24 @@
       "copyrightText": "NOASSERTION"
     },
     {
-      "fileName": "./vcpkg_cmake_config_fixup.cmake",
+      "fileName": ".//home/tibor/dev/vcpkg/ports/vcpkg-cmake-config/portfile.cmake",
+      "SPDXID": "SPDXRef-file-3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "832b34e63f5af41ad1b2e4aa79c5bfa507a005b120b51548e674accc706837d7"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": ".//home/tibor/dev/vcpkg/ports/vcpkg-cmake-config/vcpkg.json",
       "SPDXID": "SPDXRef-file-4",
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "f92905382d90e37fa2addd96becce31f5075175196b117de6dd997a4ac1d6d06"
+          "checksumValue": "4ffbabc2feab69abd21267f57669ef5e404bcbfa5ab6d93234374d98f5ff1864"
         }
       ],
       "licenseConcluded": "NOASSERTION",

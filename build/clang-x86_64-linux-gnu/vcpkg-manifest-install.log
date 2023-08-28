@@ -1,8 +1,76 @@
 warning: Embedding `vcpkg-configuration` in a manifest file is an EXPERIMENTAL feature.
 Detecting compiler hash for triplet x64-linux...
-All requested packages are currently installed.
-Restored 0 package(s) from /home/tibork/.cache/vcpkg/archives in 679 ns. Use --debug to see more details.
-Total install time: 9.651 us
+The following packages will be built and installed:
+    daxa[core,utils-imgui,utils-mem,utils-pipeline-manager-glslang,utils-task-graph]:x64-linux -> local#17 -- /home/tibor/dev/Daxa/cmake/vcpkg-port
+  * fmt:x64-linux -> 10.1.0
+    glfw3[core,wayland,xlib]:x64-linux -> custom -- /home/tibor/dev/Daxa/cmake/vcpkg-overlay-ports/glfw3
+    glm:x64-linux -> 0.9.9.8#2
+  * glslang:x64-linux -> 12.2.0#1
+    imgui[core,docking-experimental,glfw-binding]:x64-linux -> 1.89.7
+    stb:x64-linux -> 2023-04-11#1
+  * vcpkg-cmake:x64-linux -> 2023-05-04
+  * vcpkg-cmake-config:x64-linux -> 2022-02-06#1
+  * vulkan:x64-linux -> 1.1.82.1#6
+  * vulkan-memory-allocator:x64-linux -> 3.0.1#3
+  * wayland:x64-linux -> 1.21.0#1
+  * wayland-protocols:x64-linux -> 1.31#1
+Additional packages (*) will be modified to complete this operation.
+Restored 10 package(s) from /home/tibor/.cache/vcpkg/archives in 646 ms. Use --debug to see more details.
+Installing 1/13 vcpkg-cmake-config:x64-linux...
+Elapsed time to handle vcpkg-cmake-config:x64-linux: 278 us
+Installing 2/13 vcpkg-cmake:x64-linux...
+Elapsed time to handle vcpkg-cmake:x64-linux: 290 us
+Installing 3/13 glslang:x64-linux...
+Elapsed time to handle glslang:x64-linux: 1.9 ms
+Installing 4/13 wayland:x64-linux...
+Elapsed time to handle wayland:x64-linux: 304 us
+Installing 5/13 wayland-protocols:x64-linux...
+Elapsed time to handle wayland-protocols:x64-linux: 396 us
+Installing 6/13 glfw3:x64-linux...
+Elapsed time to handle glfw3:x64-linux: 820 us
+Installing 7/13 imgui:x64-linux...
+Elapsed time to handle imgui:x64-linux: 717 us
+Installing 8/13 vulkan-memory-allocator:x64-linux...
+Elapsed time to handle vulkan-memory-allocator:x64-linux: 626 us
+Installing 9/13 vulkan:x64-linux...
+Elapsed time to handle vulkan:x64-linux: 576 us
+Installing 10/13 fmt:x64-linux...
+Elapsed time to handle fmt:x64-linux: 817 us
+Installing 11/13 daxa:x64-linux...
+Building daxa[core,utils-imgui,utils-mem,utils-pipeline-manager-glslang,utils-task-graph]:x64-linux...
+-- Installing port from location: /home/tibor/dev/Daxa/cmake/vcpkg-port
+-- Configuring x64-linux-dbg
+-- Configuring x64-linux-rel
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/tibor/dev/vcpkg/packages/daxa_x64-linux/share/daxa/copyright
+-- Performing post-build validation
+Stored binaries in 1 destinations in 615 ms.
+Elapsed time to handle daxa:x64-linux: 15 s
+Installing 12/13 glm:x64-linux...
+Building glm:x64-linux...
+-- Downloading https://github.com/g-truc/glm/archive/bf71a834948186f4097caa076cd2663c69a10e1e.tar.gz -> g-truc-glm-bf71a834948186f4097caa076cd2663c69a10e1e.tar.gz...
+-- Extracting source /home/tibor/dev/vcpkg/downloads/g-truc-glm-bf71a834948186f4097caa076cd2663c69a10e1e.tar.gz
+-- Using source at /home/tibor/dev/vcpkg/buildtrees/glm/src/3c69a10e1e-d8f71d3bef.clean
+-- Configuring x64-linux
+-- Building x64-linux-rel
+-- Installing: /home/tibor/dev/vcpkg/packages/glm_x64-linux/share/glm/copyright
+-- Performing post-build validation
+Stored binaries in 1 destinations in 31.7 ms.
+Elapsed time to handle glm:x64-linux: 2.1 s
+Installing 13/13 stb:x64-linux...
+Building stb:x64-linux...
+-- Downloading https://github.com/nothings/stb/archive/5736b15f7ea0ffb08dd38af21067c314d6a3aae9.tar.gz -> nothings-stb-5736b15f7ea0ffb08dd38af21067c314d6a3aae9.tar.gz...
+-- Extracting source /home/tibor/dev/vcpkg/downloads/nothings-stb-5736b15f7ea0ffb08dd38af21067c314d6a3aae9.tar.gz
+-- Using source at /home/tibor/dev/vcpkg/buildtrees/stb/src/14d6a3aae9-dc9b68ccde.clean
+-- Installing: /home/tibor/dev/vcpkg/packages/stb_x64-linux/share/stb/FindStb.cmake
+-- Installing: /home/tibor/dev/vcpkg/packages/stb_x64-linux/share/stb/vcpkg-cmake-wrapper.cmake
+-- Installing: /home/tibor/dev/vcpkg/packages/stb_x64-linux/share/stb/usage
+-- Installing: /home/tibor/dev/vcpkg/packages/stb_x64-linux/share/stb/copyright
+-- Performing post-build validation
+Stored binaries in 1 destinations in 38.6 ms.
+Elapsed time to handle stb:x64-linux: 2.3 s
+Total install time: 20 s
 glfw3 provides CMake targets:
 
     # this is heuristically generated, and may not be correct
@@ -27,8 +95,7 @@ glm provides CMake targets:
     find_package(glm CONFIG REQUIRED)
     target_link_libraries(main PRIVATE glm::glm)
 
-stb is header-only and can be used from CMake via:
+The package stb provides CMake targets:
 
-    find_path(STB_INCLUDE_DIRS "stb_c_lexer.h")
-    target_include_directories(main PRIVATE ${STB_INCLUDE_DIRS})
-
+    find_package(Stb REQUIRED)
+    target_include_directories(main PRIVATE ${Stb_INCLUDE_DIR})
