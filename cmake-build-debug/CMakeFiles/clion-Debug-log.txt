@@ -2,49 +2,8 @@
 -- Running vcpkg install
 warning: Embedding `vcpkg-configuration` in a manifest file is an EXPERIMENTAL feature.
 Detecting compiler hash for triplet x64-linux...
-The following packages will be built and installed:
-    daxa[core,utils-imgui,utils-mem,utils-pipeline-manager-glslang,utils-task-graph]:x64-linux -> local#17 -- /home/tibor/dev/Daxa/cmake/vcpkg-port
-  * fmt:x64-linux -> 10.1.0
-    glfw3[core,wayland,xlib]:x64-linux -> custom -- /home/tibor/dev/Daxa/cmake/vcpkg-overlay-ports/glfw3
-    glm:x64-linux -> 0.9.9.8#2
-  * glslang:x64-linux -> 12.2.0#1
-    imgui[core,docking-experimental,glfw-binding]:x64-linux -> 1.89.7
-    stb:x64-linux -> 2023-04-11#1
-  * vcpkg-cmake:x64-linux -> 2023-05-04
-  * vcpkg-cmake-config:x64-linux -> 2022-02-06#1
-  * vulkan:x64-linux -> 1.1.82.1#6
-  * vulkan-memory-allocator:x64-linux -> 3.0.1#3
-  * wayland:x64-linux -> 1.21.0#1
-  * wayland-protocols:x64-linux -> 1.31#1
-Additional packages (*) will be modified to complete this operation.
-Restored 13 package(s) from /home/tibor/.cache/vcpkg/archives in 575 ms. Use --debug to see more details.
-Installing 1/13 vcpkg-cmake-config:x64-linux...
-Elapsed time to handle vcpkg-cmake-config:x64-linux: 268 us
-Installing 2/13 vcpkg-cmake:x64-linux...
-Elapsed time to handle vcpkg-cmake:x64-linux: 189 us
-Installing 3/13 glslang:x64-linux...
-Elapsed time to handle glslang:x64-linux: 908 us
-Installing 4/13 wayland:x64-linux...
-Elapsed time to handle wayland:x64-linux: 207 us
-Installing 5/13 wayland-protocols:x64-linux...
-Elapsed time to handle wayland-protocols:x64-linux: 214 us
-Installing 6/13 glfw3:x64-linux...
-Elapsed time to handle glfw3:x64-linux: 476 us
-Installing 7/13 imgui:x64-linux...
-Elapsed time to handle imgui:x64-linux: 500 us
-Installing 8/13 vulkan-memory-allocator:x64-linux...
-Elapsed time to handle vulkan-memory-allocator:x64-linux: 310 us
-Installing 9/13 vulkan:x64-linux...
-Elapsed time to handle vulkan:x64-linux: 255 us
-Installing 10/13 fmt:x64-linux...
-Elapsed time to handle fmt:x64-linux: 456 us
-Installing 11/13 daxa:x64-linux...
-Elapsed time to handle daxa:x64-linux: 751 us
-Installing 12/13 glm:x64-linux...
-Elapsed time to handle glm:x64-linux: 3.29 ms
-Installing 13/13 stb:x64-linux...
-Elapsed time to handle stb:x64-linux: 567 us
-Total install time: 8.44 ms
+All requested packages are currently installed.
+Total install time: 171 ns
 glfw3 provides CMake targets:
 
     # this is heuristically generated, and may not be correct
@@ -74,23 +33,6 @@ The package stb provides CMake targets:
     find_package(Stb REQUIRED)
     target_include_directories(main PRIVATE ${Stb_INCLUDE_DIR})
 -- Running vcpkg install - done
--- The C compiler identification is GNU 11.4.0
--- The CXX compiler identification is GNU 11.4.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found Vulkan: /home/tibor/dev/1.3.261.0/x86_64/lib/libvulkan.so (found version "1.3.261") found components: glslc glslangValidator 
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
--- Found Threads: TRUE  
--- Found Stb: /home/tibor/Desktop/minecraft-engine/cmake-build-debug/vcpkg_installed/x64-linux/include  
--- Configuring done (1.5s)
+-- Configuring done (1.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/tibor/Desktop/minecraft-engine/cmake-build-debug

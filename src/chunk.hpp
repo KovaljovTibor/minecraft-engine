@@ -4,8 +4,11 @@
 #include <daxa/daxa.hpp>
 #include <daxa/device.hpp>
 #include <glm/glm.hpp>
+#include <FastNoise/FastNoise.h>
 
 using namespace daxa::types;
+
+static constexpr i32 CHUNK_SIZE = 16;
 
 enum struct BlockID: u32 {
     Air,
@@ -15,13 +18,16 @@ enum struct BlockID: u32 {
 };
 
 struct Chunk {
-    Chunk(daxa::Device _device, const glm::ivec3& _chunkPos);
+    Chunk(daxa::Device _device, const glm::ivec3& _chunkPos, const FastNoise::SmartNode<> &generator);
     ~Chunk();
 
-    daxa::BufferId vertexBuffer = {};
-    u32 vertexCount = {};
-    daxa::Device device = {};
-    glm::ivec3 chunkPos = {};
+    BlockID getVoxel(const glm::ivec3 &p);
+
+    daxa::BufferId faceBuffer;
+    u32 chunkSize;
+    daxa::Device &device;
+    bool renderable = false;
+    glm::ivec3 pos = {};
 
     std::array<std::array<std::array<BlockID, 16>, 16>, 16> blockIds = {};
 };

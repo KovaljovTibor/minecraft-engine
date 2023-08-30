@@ -68,6 +68,24 @@ struct App {
     std::shared_ptr<daxa::RasterPipeline> raster_pipeline = {};
     std::unordered_map<glm::ivec3, std::unique_ptr<Chunk>> chunks = {};
     daxa::ImageId depthBuffer = {};
+    // noise generator - generates random values - used for world generation
+    FastNoise::SmartNode<> generator = []() {
+        auto OpenSimplex = FastNoise::New<FastNoise::OpenSimplex2>();
+        auto FractalFBm = FastNoise::New<FastNoise::FractalFBm>();
+        FractalFBm->SetSource(OpenSimplex);
+        FractalFBm->SetGain(0.280f);
+        FractalFBm->SetOctaveCount(4);
+        FractalFBm->SetLacunarity(4.0f);
+        auto DomainScale = FastNoise::New<FastNoise::DomainScale>();
+        DomainScale->SetSource(FractalFBm);
+        DomainScale->SetScale(0.86f);
+        auto PosationOutput = FastNoise::New<FastNoise::PositionOutput>();
+        PosationOutput->Set<FastNoise::Dim::Y>(6.72f);
+        auto add = FastNoise::New<FastNoise::Add>();
+        add->SetLHS(DomainScale);
+        add->SetRHS(PosationOutput);
+        return add;
+    }();
 
     u32 size_x = 800, size_y = 600;
     bool minimized = false;
@@ -77,7 +95,7 @@ struct App {
 
     f64 current_frame = glfwGetTime();
     f64 last_frame = current_frame;
-    f64 delta_time;
+    f64 delta_time{};
 
     App() {
         glfwInit();
@@ -170,12 +188,20 @@ struct App {
             .push_constant_size = sizeof(DrawPush),
         }).value();
 
-        for (u32 x = 0; x < 3; x++) {
-            for (u32 y = 0; y < 3; y++) {
-                for (u32 z = 0; z < 3; z++) {
-                    chunks.insert({glm::ivec3(x, y, z), std::make_unique<Chunk>(device, glm::ivec3(x, y, z))});
+        static constexpr i32 worldSizeX = 16;
+        static constexpr i32 worldSizeY = 1;
+        static constexpr i32 worldSizeZ = 16;
+
+        u32 chunkAmount = 0;
+
+        for (i32 x = -worldSizeX; x <= worldSizeX; x++) {
+            for (i32 y = -worldSizeY; y <= worldSizeY; y++) {
+                for (i32 z = -worldSizeZ; z <= worldSizeZ; z++) {
+                    chunkAmount++;
+                    std::unique_ptr<Chunk> chunk = std::make_unique<Chunk>(device, glm::ivec3{x, y, z}, generator);
+                    this->chunks.insert({glm::ivec3{x, y, z}, std::move(chunk)});
                 }
-            }   
+            }
         }
 
         camera.camera.resize(size_x, size_y);
@@ -227,16 +253,17 @@ struct App {
         });
 
         cmd_list.set_pipeline(*raster_pipeline);
-        
-        glm::mat4 model = glm::translate(glm::mat4{1.0f}, glm::vec3{0.0f, 0.0f, 0.0f});
-        glm::mat4 mvp = camera.camera.getViewProjection() * model;
 
         for (const auto& [key, chunk]: chunks) {
-            cmd_list.push_constant(DrawPush {
-                .modelViewProjection = *reinterpret_cast<f32mat4x4*>(&mvp),
-                .vertices = device.get_device_address(chunk->vertexBuffer)
-            });
-            cmd_list.draw(daxa::DrawInfo { .vertex_count = chunk->vertexCount });
+            glm::mat4 model = glm::translate(glm::mat4{1.0f}, glm::vec3{chunk->pos * 16});
+            glm::mat4 mvp = camera.camera.getViewProjection() * model;
+            if (chunk->renderable) {
+                cmd_list.push_constant(DrawPush {
+                        .modelViewProjection = *reinterpret_cast<f32mat4x4*>(&mvp),
+                        .vertices = device.get_device_address(chunk->faceBuffer)
+                });
+                cmd_list.draw(daxa::DrawInfo { .vertex_count = chunk->chunkSize });
+            }
         }
 
         cmd_list.end_renderpass();
