@@ -28,6 +28,8 @@ using HWND = void*;
 
 #include <unordered_map>
 
+#include "textures.hpp"
+
 auto get_native_platform() -> daxa::NativeWindowPlatform {
     switch (glfwGetPlatform()) {
         case GLFW_PLATFORM_WIN32:
@@ -68,6 +70,8 @@ struct App {
     std::shared_ptr<daxa::RasterPipeline> raster_pipeline = {};
     std::unordered_map<glm::ivec3, std::unique_ptr<Chunk>> chunks = {};
     daxa::ImageId depthBuffer = {};
+    std::unique_ptr<Textures> texture = {};
+
     // noise generator - generates random values - used for world generation
     FastNoise::SmartNode<> generator = []() {
         auto OpenSimplex = FastNoise::New<FastNoise::OpenSimplex2>();
@@ -205,6 +209,8 @@ struct App {
         }
 
         camera.camera.resize(size_x, size_y);
+
+        texture = std::make_unique<Textures>(device);
     }
 
     ~App() {
@@ -260,7 +266,9 @@ struct App {
             if (chunk->renderable) {
                 cmd_list.push_constant(DrawPush {
                         .modelViewProjection = *reinterpret_cast<f32mat4x4*>(&mvp),
-                        .vertices = device.get_device_address(chunk->faceBuffer)
+                        .vertices = device.get_device_address(chunk->faceBuffer),
+                        .textures = texture->atlas_texture_array.default_view(),
+                        .texturesSampler = texture->atlas_sampler
                 });
                 cmd_list.draw(daxa::DrawInfo { .vertex_count = chunk->chunkSize });
             }

@@ -23,7 +23,9 @@ find_package(imgui CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(Stb REQUIRED)
 
-add_executable(minecraft "src/main.cpp" "src/camera.cpp" "src/chunk.cpp")
+add_executable(minecraft "src/main.cpp" "src/camera.cpp" "src/chunk.cpp"
+        src/textures.cpp
+        src/textures.hpp)
 target_compile_features(minecraft PRIVATE cxx_std_20)
 target_link_libraries(minecraft PRIVATE daxa::daxa glfw imgui::imgui glm::glm FastNoise2)
 target_include_directories(minecraft PRIVATE ${Stb_INCLUDE_DIR})
