@@ -22,7 +22,7 @@ layout(location = 0) out vec4 color;
 
 void main() {
     //color = vec4(in_color, 1.0);
-    color = vec4(texture(daxa_sampler2DArray(push.textures, push.texturesSampler), in_uv), 1.0);
+    color = vec4(texture(daxa_sampler2DArray(push.textures, push.texturesSampler), vec3(in_uv, 1.0)).rgb, 1.0);
 }
 
 #endif
