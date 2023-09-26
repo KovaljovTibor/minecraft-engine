@@ -6,6 +6,7 @@ struct Vertex {
     daxa_f32vec3 pos;
     daxa_f32vec3 color;
     daxa_u32 id;
+    daxa_f32vec2 uv;
 };
 
 DAXA_DECL_BUFFER_PTR(Vertex)

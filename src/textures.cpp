@@ -115,6 +115,7 @@ Textures::Textures(daxa::Device &device): device{device} {
             },
         .image_id = atlas_texture_array,
     });
+
     cmd_list.pipeline_barrier_image_transition({
         .dst_access = daxa::AccessConsts::BLIT_READ,
         .dst_layout = daxa::ImageLayout::TRANSFER_DST_OPTIMAL,
@@ -127,11 +128,13 @@ Textures::Textures(daxa::Device &device): device{device} {
             },
         .image_id = atlas_texture_array,
     });
+
     std::array<i32, 3> next_mip_size = {
         std::max<i32>(1, mip_size[0] / 2),
         std::max<i32>(1, mip_size[1] / 2),
         std::max<i32>(1, mip_size[2] / 2),
     };
+
     cmd_list.blit_image_to_image({
         .src_image = atlas_texture_array,
         .src_image_layout = daxa::ImageLayout::TRANSFER_SRC_OPTIMAL,
@@ -157,6 +160,7 @@ Textures::Textures(daxa::Device &device): device{device} {
     });
     mip_size = next_mip_size;
   }
+
   for (u32 i = 0; i < 4 - 1; ++i) {
     cmd_list.pipeline_barrier_image_transition({
         .src_access = daxa::AccessConsts::TRANSFER_READ_WRITE,
@@ -173,6 +177,7 @@ Textures::Textures(daxa::Device &device): device{device} {
         .image_id = atlas_texture_array,
     });
   }
+
   cmd_list.pipeline_barrier_image_transition({
       .src_access = daxa::AccessConsts::TRANSFER_READ_WRITE,
       .dst_access = daxa::AccessConsts::READ_WRITE,

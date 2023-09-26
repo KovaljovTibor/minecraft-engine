@@ -10,7 +10,7 @@ layout(location = 1) out f32vec2 out_uv;
 void main() {
   out_color = deref(push.vertices[gl_VertexIndex]).color;
   gl_Position = push.modelViewProjection * vec4(deref(push.vertices[gl_VertexIndex]).pos, 1.0);
-    out_uv = vec2(0.0, 0.0);
+  out_uv = deref(push.vertices[gl_VertexIndex]).uv;
 }
 
 #elif DAXA_SHADER_STAGE == DAXA_SHADER_STAGE_FRAGMENT

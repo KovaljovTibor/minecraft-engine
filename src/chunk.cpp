@@ -51,16 +51,16 @@ Chunk::Chunk(daxa::Device _device, const glm::ivec3 &_chunkPos, const FastNoise:
 
                 std::vector<Vertex> block_verts = {};
 
-                u32 id = 1;
+                u32 id = 4;
 
                 if(getVoxel(voxel_pos + glm::ivec3{ 0, 0, -1 }) == BlockID::Air) {
                     std::vector<Vertex> face = {
-                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 0.0f } },
+                            Vertex {{ 0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 1.0f } },
+                            Vertex {{-0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 0.0f } },
                     };
 
                     block_verts.insert(block_verts.end(), face.begin(), face.end());
@@ -68,12 +68,12 @@ Chunk::Chunk(daxa::Device _device, const glm::ivec3 &_chunkPos, const FastNoise:
 
                 if(getVoxel(voxel_pos + glm::ivec3{ 0, 0, +1 }) == BlockID::Air) {
                     std::vector<Vertex> face = {
-                            Vertex {{-0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 0.0f } },
+                            Vertex {{ 0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 1.0f } },
+                            Vertex {{-0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 0.0f } },
                     };
 
                     block_verts.insert(block_verts.end(), face.begin(), face.end());
@@ -81,12 +81,12 @@ Chunk::Chunk(daxa::Device _device, const glm::ivec3 &_chunkPos, const FastNoise:
 
                 if(getVoxel(voxel_pos + glm::ivec3{ -1, 0, 0 }) == BlockID::Air) {
                     std::vector<Vertex> face = {
-                            Vertex {{-0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
+                            Vertex {{-0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
+                            Vertex {{-0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 1.0f } },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 0.0f } },
+                            Vertex {{-0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
                     };
 
                     block_verts.insert(block_verts.end(), face.begin(), face.end());
@@ -94,12 +94,12 @@ Chunk::Chunk(daxa::Device _device, const glm::ivec3 &_chunkPos, const FastNoise:
 
                 if(getVoxel(voxel_pos + glm::ivec3{ +1, 0, 0 }) == BlockID::Air) {
                     std::vector<Vertex> face = {
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 0.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
                     };
 
                     block_verts.insert(block_verts.end(), face.begin(), face.end());
@@ -107,12 +107,12 @@ Chunk::Chunk(daxa::Device _device, const glm::ivec3 &_chunkPos, const FastNoise:
 
                 if(getVoxel(voxel_pos + glm::ivec3{ 0, -1, 0 }) == BlockID::Air) {
                     std::vector<Vertex> face = {
-                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
+                            Vertex {{ 0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 0.0f } },
+                            Vertex {{-0.5f + f_x, -0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
                     };
 
                     block_verts.insert(block_verts.end(), face.begin(), face.end());
@@ -120,12 +120,12 @@ Chunk::Chunk(daxa::Device _device, const glm::ivec3 &_chunkPos, const FastNoise:
 
                 if(getVoxel(voxel_pos + glm::ivec3{ 0, +1, 0 }) == BlockID::Air) {
                     std::vector<Vertex> face = {
-                            Vertex {{-0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id },
-                            Vertex {{-0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id },
+                            Vertex {{-0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 1.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
+                            Vertex {{ 0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 1.0f, 0.0f } },
+                            Vertex {{-0.5f + f_x,  0.5f + f_y,  0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 0.0f } },
+                            Vertex {{-0.5f + f_x,  0.5f + f_y, -0.5f + f_z},      { col.x, col.y, col.z }, id, { 0.0f, 1.0f } },
                     };
 
                     block_verts.insert(block_verts.end(), face.begin(), face.end());
